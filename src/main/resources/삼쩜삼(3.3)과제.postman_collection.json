@@ -1,0 +1,1713 @@
+{
+	"info": {
+		"_postman_id": "a47c7b8e-cfba-4c3d-8176-3863fe110f5d",
+		"name": "삼쩜삼(3.3)과제",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30207764"
+	},
+	"item": [
+		{
+			"name": "회원가입",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"1234\",\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"860824-1655068\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/szs/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"szs",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "홍길동 회원가입 성공",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"1234\",\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"860824-1655068\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 04:56:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원 가입 성공\",\n        \"codeName\": \"SUCCESS_MEMBER_SIGNUP\"\n    }\n}"
+				},
+				{
+					"name": "김둘리 회원가입 성공",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"kim12\",\n    \"password\" : \"1234\",\n    \"name\" : \"김둘리\",\n    \"regNo\" : \"921108-1582816\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 09:59:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원 가입 성공\",\n        \"codeName\": \"SUCCESS_MEMBER_SIGNUP\"\n    }\n}"
+				},
+				{
+					"name": "회원가입 실패(invalid 요청바디)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"kim12\",\n    \"password\" : \"1234\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 10:46:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_REQUEST_BODY_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"잘못된 요청 바디 입니다.\"\n    },\n    \"regNo\": \"주민등록번호를 입력해주세요.\",\n    \"name\": \"이름을 입력해주세요.\"\n}"
+				},
+				{
+					"name": "회원가입 실패(주민등록번호 패턴 오류)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"kim12\",\n    \"password\" : \"1234\",\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"111-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 10:49:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_REQUEST_BODY_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"잘못된 요청 바디 입니다.\"\n    },\n    \"regNo\": \"주민등록번호 형식으로 입력해주세요.(앞 6자리 - 뒷 7자리)\"\n}"
+				},
+				{
+					"name": "회원가입 실패(등록되지 않은 주민등록번호)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"kim12\",\n    \"password\" : \"1234\",\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2712111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 12:48:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_NOT_MATCH_REGNO_AND_NAME\",\n        \"code\": 400,\n        \"message\": \"해당 고객님은 주민등록상에 존재하지 않습니다.\"\n    }\n}"
+				},
+				{
+					"name": "회원가입 실패(중복된 유저)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"1234\",\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2715702\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 12:54:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_DUPLICATE_USER_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"중복된 유저가 존재합니다.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "로그인",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/szs/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"szs",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "로그인 성공(회원)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 04:58:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"로그인 성공\",\n        \"codeName\": \"SUCCESS_MEMBER_LOGIN\"\n    },\n    \"accessToken\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDY2NzcxOTAsInVzZXJJZCI6ImhvbmcxMiJ9.oTl_bkZArOZ1CrrMx0uNi_ukP9RmLFLJRzlY4Wi_yFSzDotSZuR8O84mjE8qcXI9Yyp4JrzN3llgStkdy8n4TQ\"\n}"
+				},
+				{
+					"name": "로그인 실패(일치하는 회원 x)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"hong12\",\n    \"password\" : \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 04:56:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_NOT_MATCH_MEMBER\",\n        \"code\": 400,\n        \"message\": \"일치하는 회원이 없습니다.\"\n    }\n}"
+				},
+				{
+					"name": "로그인 실패(invalid 요청 바디)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : \"hong12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 11:04:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_REQUEST_BODY_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"잘못된 요청 바디 입니다.\"\n    },\n    \"password\": \"비밀번호를 입력해주세요.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "스크랩핑",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS512",
+							"type": "string"
+						},
+						{
+							"key": "payload",
+							"value": "{\n    \"userId\":\"hong12\"\n}",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{\n    \"userId\": \"test@test.com\"\n}",
+							"type": "string"
+						},
+						{
+							"key": "secret",
+							"value": "caramel",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"860824-1655068\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/szs/scrap",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"szs",
+						"scrap"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "홍길동 스크랩핑",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"860824-1655068\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 Feb 2024 08:12:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님이 요청하신 소득 정보를 가져왔습니다.\",\n        \"codeName\": \"SUCCESS_GET_SCRAP_DATA\"\n    },\n    \"data\": {\n        \"incomeTax\": {\n            \"regNo\": \"860824-1655068\",\n            \"earnedIncome\": 60000000,\n            \"calculatedTax\": 3000000,\n            \"expense_id\": 1\n        },\n        \"expense\": {\n            \"insurancePremium\": 100000,\n            \"medicalExpenses\": 200000,\n            \"educationExpenses\": 150000,\n            \"donationAmount\": 4400000,\n            \"retirementFund\": 6000000\n        }\n    }\n}"
+				},
+				{
+					"name": "김둘리 스크랩핑",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"김둘리\",\n    \"regNo\" : \"921108-1582816\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 Feb 2024 08:16:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님이 요청하신 소득 정보를 가져왔습니다.\",\n        \"codeName\": \"SUCCESS_GET_SCRAP_DATA\"\n    },\n    \"data\": {\n        \"incomeTax\": {\n            \"regNo\": \"921108-1582816\",\n            \"earnedIncome\": 30000000,\n            \"calculatedTax\": 1200000,\n            \"expense_id\": 1\n        },\n        \"expense\": {\n            \"insurancePremium\": 100000,\n            \"medicalExpenses\": 200000,\n            \"educationExpenses\": 150000,\n            \"donationAmount\": 700000,\n            \"retirementFund\": 1333333.333\n        }\n    }\n}"
+				},
+				{
+					"name": "마징가 스크랩핑",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"마징가\",\n    \"regNo\" : \"880601-2455116\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 09:30:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님이 요청하신 소득 정보를 가져왔습니다.\",\n        \"codeName\": \"SUCCESS_GET_SCRAP_DATA\"\n    },\n    \"data\": {\n        \"소득정보\": {\n            \"expenseId\": null,\n            \"주민등록번호\": \"880601-2455116\",\n            \"근로소득\": 80000000,\n            \"산출세액\": 4700000.11\n        },\n        \"소득공제\": {\n            \"보험료\": 200000,\n            \"교육비\": 200000,\n            \"기부금\": 200000,\n            \"의료비\": 5000000,\n            \"퇴직연금\": 7233333.333\n        }\n    }\n}"
+				},
+				{
+					"name": "배지터 스크랩핑",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"베지터\",\n    \"regNo\" : \"910411-1656116\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 09:34:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님이 요청하신 소득 정보를 가져왔습니다.\",\n        \"codeName\": \"SUCCESS_GET_SCRAP_DATA\"\n    },\n    \"data\": {\n        \"소득정보\": {\n            \"expenseId\": null,\n            \"주민등록번호\": \"910411-1656116\",\n            \"근로소득\": 200000000,\n            \"산출세액\": 5000000\n        },\n        \"소득공제\": {\n            \"보험료\": 150000,\n            \"교육비\": 100000,\n            \"기부금\": 1000000,\n            \"의료비\": 400000,\n            \"퇴직연금\": 2533333.333\n        }\n    }\n}"
+				},
+				{
+					"name": "손오공 스크랩핑",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2715702\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 10:02:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님이 요청하신 소득 정보를 가져왔습니다.\",\n        \"codeName\": \"SUCCESS_GET_SCRAP_DATA\"\n    },\n    \"data\": {\n        \"소득정보\": {\n            \"expense\": null,\n            \"주민등록번호\": \"820326-2715702\",\n            \"근로소득\": 50000000,\n            \"산출세액\": 3000000\n        },\n        \"소득공제\": {\n            \"보험료\": 160000,\n            \"교육비\": 300000,\n            \"기부금\": 200000,\n            \"의료비\": 500000,\n            \"퇴직연금\": 3000000\n        }\n    }\n}"
+				},
+				{
+					"name": "스크랩핑 실패(invalid 요청바디)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 11:19:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_REQUEST_BODY_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"잘못된 요청 바디 입니다.\"\n    },\n    \"regNo\": \"주민등록번호를 입력해주세요.\"\n}"
+				},
+				{
+					"name": "스크랩핑 실패(주민등록번호 패턴 오류)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2712\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 11:20:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_REQUEST_BODY_INVALID_ERROR\",\n        \"code\": 400,\n        \"message\": \"잘못된 요청 바디 입니다.\"\n    },\n    \"regNo\": \"주민등록번호 형식으로 입력해주세요.(앞 6자리 - 뒷 7자리)\"\n}"
+				},
+				{
+					"name": "스크랩핑 실패(등록되지 않은 주민등록번호 및 이름)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2712111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/szs/scrap",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"scrap"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 13:00:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_NOT_MATCH_REGNO_AND_NAME\",\n        \"code\": 400,\n        \"message\": \"해당 고객님은 주민등록상에 존재하지 않습니다.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "회원의 결정세액 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/szs/refund",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"szs",
+						"refund"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "홍길동 결정세액",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/szs/refund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"refund"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 09:55:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님의 결정 세액 정보입니다.\",\n        \"codeName\": \"SUCCESS_GET_DETERMINED_TAX\"\n    },\n    \"tax\": {\n        \"이름\": \"홍길동\",\n        \"결정세액\": \"6,244,500\",\n        \"퇴직연금세액공제\": \"900,000\"\n    }\n}"
+				},
+				{
+					"name": "김둘리 결정세액",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/szs/refund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"refund"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 10:00:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 200,\n        \"message\": \"회원님의 결정 세액 정보입니다.\",\n        \"codeName\": \"SUCCESS_GET_DETERMINED_TAX\"\n    },\n    \"tax\": {\n        \"이름\": \"김둘리\",\n        \"결정세액\": \"2,199,500\",\n        \"퇴직연금세액공제\": \"200,000\"\n    }\n}"
+				},
+				{
+					"name": "결정세액조회 실패(인증 토큰 userId정보가 잘못된 경우)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/szs/refund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"refund"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 13:38:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"BAD_NOT_MATCH_MEMBER\",\n        \"code\": 400,\n        \"message\": \"일치하는 회원이 없습니다.\"\n    }\n}"
+				},
+				{
+					"name": "결정세액조회 실패(토큰에 저장된 유저정보가 잘못되었을 경우)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/szs/refund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"refund"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 14:09:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"codeName\": \"UNAUTHORIZED_PAYLOAD_MEMBER_DATA\",\n        \"code\": 401,\n        \"message\": \"토큰에 저장된 유저 정보가 잘못되었습니다.\"\n    }\n}"
+				},
+				{
+					"name": "결정세액조회 실패(잘못된 인증 토큰)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/szs/refund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"szs",
+								"refund"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 Feb 2024 16:32:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"code\": 401,\n        \"message\": \"잘못된 접근 토큰 입니다.\",\n        \"codeName\": \"UNAUTHORIZED_MALFORMED_JWT\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "회원 소득 정보",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"마징가\",\n    \"regNo\" : \"880601-2455116\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://codetest.3o3.co.kr/v2/scrap",
+					"protocol": "https",
+					"host": [
+						"codetest",
+						"3o3",
+						"co",
+						"kr"
+					],
+					"path": [
+						"v2",
+						"scrap"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "홍길동 소득정보",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"홍길동\",\n    \"regNo\" : \"860824-1655068\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jan 2024 11:34:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "856"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "97809ec9-b53d-4281-890a-fe0bcfe85ab7"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SWfBYECSIE0FTpQ="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65b8ded5-5dfe89f90abf0cf57ba99943;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"jsonList\": {\n            \"급여\": [\n                {\n                    \"소득내역\": \"급여\",\n                    \"총지급액\": \"60,000,000\",\n                    \"업무시작일\": \"2020.10.02\",\n                    \"기업명\": \"(주)활빈당\",\n                    \"이름\": \"홍길동\",\n                    \"지급일\": \"2020.11.02\",\n                    \"업무종료일\": \"2021.11.02\",\n                    \"주민등록번호\": \"860824-1655068\",\n                    \"소득구분\": \"근로소득(연간)\",\n                    \"사업자등록번호\": \"012-34-56789\"\n                }\n            ],\n            \"산출세액\": \"3,000,000\",\n            \"소득공제\": [\n                {\n                    \"금액\": \"100,000\",\n                    \"소득구분\": \"보험료\"\n                },\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"교육비\"\n                },\n                {\n                    \"금액\": \"150,000\",\n                    \"소득구분\": \"기부금\"\n                },\n                {\n                    \"금액\": \"4,400,000\",\n                    \"소득구분\": \"의료비\"\n                },\n                {\n                    \"총납임금액\": \"6,000,000\",\n                    \"소득구분\": \"퇴직연금\"\n                }\n            ]\n        },\n        \"appVer\": \"2021112501\",\n        \"errMsg\": \"\",\n        \"company\": \"삼쩜삼\",\n        \"svcCd\": \"test01\",\n        \"hostNm\": \"jobis-codetest\",\n        \"workerResDt\": \"2022-08-16T06:27:35.160789\",\n        \"workerReqDt\": \"2022-08-16T06:27:35.160851\"\n    },\n    \"errors\": {}\n}"
+				},
+				{
+					"name": "김둘리 소득정보",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"김둘리\",\n    \"regNo\" : \"921108-1582816\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jan 2024 11:45:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "858"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "8324d5c6-74ba-408f-92ac-257451da71e8"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SWgg4EaSoE0Falg="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65b8e138-3ebeff215e2db6c3430822df;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"jsonList\": {\n            \"급여\": [\n                {\n                    \"소득내역\": \"급여\",\n                    \"총지급액\": \"30,000,000\",\n                    \"업무시작일\": \"2018.09.03\",\n                    \"기업명\": \"(주)고길동\",\n                    \"이름\": \"김둘리\",\n                    \"지급일\": \"2020.10.02\",\n                    \"업무종료일\": \"2018.10.02\",\n                    \"주민등록번호\": \"921108-1582816\",\n                    \"소득구분\": \"근로소득(연간)\",\n                    \"사업자등록번호\": \"010-44-55589\"\n                }\n            ],\n            \"산출세액\": \"1,200,000\",\n            \"소득공제\": [\n                {\n                    \"금액\": \"100,000\",\n                    \"소득구분\": \"보험료\"\n                },\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"교육비\"\n                },\n                {\n                    \"금액\": \"150,000\",\n                    \"소득구분\": \"기부금\"\n                },\n                {\n                    \"금액\": \"700,000\",\n                    \"소득구분\": \"의료비\"\n                },\n                {\n                    \"총납임금액\": \"1,333,333.333\",\n                    \"소득구분\": \"퇴직연금\"\n                }\n            ]\n        },\n        \"appVer\": \"2021112501\",\n        \"errMsg\": \"\",\n        \"company\": \"삼쩜삼\",\n        \"svcCd\": \"test01\",\n        \"hostNm\": \"jobis-codetest\",\n        \"workerResDt\": \"2022-08-16T06:27:35.160789\",\n        \"workerReqDt\": \"2022-08-16T06:27:35.160851\"\n    },\n    \"errors\": {}\n}"
+				},
+				{
+					"name": "마징가 소득정보",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"마징가\",\n    \"regNo\" : \"880601-2455116\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 07:24:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "863"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "dd992ebc-ef4c-4e56-899f-719889c84c87"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SZNO2Eg-oE0FQmQ="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65b9f591-425d1bb023d798b50f580493;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"jsonList\": {\n            \"급여\": [\n                {\n                    \"소득내역\": \"급여\",\n                    \"총지급액\": \"80,000,000\",\n                    \"업무시작일\": \"2020.10.02\",\n                    \"기업명\": \"(주)초합금\",\n                    \"이름\": \"마징가\",\n                    \"지급일\": \"2020.11.02\",\n                    \"업무종료일\": \"2021.11.02\",\n                    \"주민등록번호\": \"880601-2455116\",\n                    \"소득구분\": \"근로소득(연간)\",\n                    \"사업자등록번호\": \"013-44-56689\"\n                }\n            ],\n            \"산출세액\": \"4,700,000.11\",\n            \"소득공제\": [\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"보험료\"\n                },\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"교육비\"\n                },\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"기부금\"\n                },\n                {\n                    \"금액\": \"5,000,000\",\n                    \"소득구분\": \"의료비\"\n                },\n                {\n                    \"총납임금액\": \"7,233,333.333\",\n                    \"소득구분\": \"퇴직연금\"\n                }\n            ]\n        },\n        \"appVer\": \"2021112501\",\n        \"errMsg\": \"\",\n        \"company\": \"삼쩜삼\",\n        \"svcCd\": \"test01\",\n        \"hostNm\": \"jobis-codetest\",\n        \"workerResDt\": \"2022-08-16T06:27:35.160789\",\n        \"workerReqDt\": \"2022-08-16T06:27:35.160851\"\n    },\n    \"errors\": {}\n}"
+				},
+				{
+					"name": "베지터 소득 정보",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"베지터\",\n    \"regNo\" : \"910411-1656116\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 07:26:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "861"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "8e91d68c-8104-42a0-91d5-46f5c61a0ac6"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SZNhnHi2oE0FW5Q="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65b9f60a-47a3f3a45c3c1b101317bc3e;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"jsonList\": {\n            \"급여\": [\n                {\n                    \"소득내역\": \"급여\",\n                    \"총지급액\": \"200,000,000\",\n                    \"업무시작일\": \"2020.10.02\",\n                    \"기업명\": \"(주)프리저\",\n                    \"이름\": \"베지터\",\n                    \"지급일\": \"2020.11.02\",\n                    \"업무종료일\": \"2021.11.02\",\n                    \"주민등록번호\": \"910411-1656116\",\n                    \"소득구분\": \"근로소득(연간)\",\n                    \"사업자등록번호\": \"012-44-45749\"\n                }\n            ],\n            \"산출세액\": \"5,000,000\",\n            \"소득공제\": [\n                {\n                    \"금액\": \"150,000\",\n                    \"소득구분\": \"보험료\"\n                },\n                {\n                    \"금액\": \"100,000\",\n                    \"소득구분\": \"교육비\"\n                },\n                {\n                    \"금액\": \"1,000,000\",\n                    \"소득구분\": \"기부금\"\n                },\n                {\n                    \"금액\": \"400,000\",\n                    \"소득구분\": \"의료비\"\n                },\n                {\n                    \"총납임금액\": \"2,533,333.333\",\n                    \"소득구분\": \"퇴직연금\"\n                }\n            ]\n        },\n        \"appVer\": \"2021112501\",\n        \"errMsg\": \"\",\n        \"company\": \"삼쩜삼\",\n        \"svcCd\": \"test01\",\n        \"hostNm\": \"jobis-codetest\",\n        \"workerResDt\": \"2022-08-16T06:27:35.160789\",\n        \"workerReqDt\": \"2022-08-16T06:27:35.160851\"\n    },\n    \"errors\": {}\n}"
+				},
+				{
+					"name": "손오공 소득정보",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2715702\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 31 Jan 2024 07:27:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "855"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "ed65ec17-b9f9-46bd-8741-8823a1e4cafd"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SZNzVHQFoE0FrYA="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65b9f67b-59e6536a7cc1e7295db86a91;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"jsonList\": {\n            \"급여\": [\n                {\n                    \"소득내역\": \"급여\",\n                    \"총지급액\": \"50,000,000\",\n                    \"업무시작일\": \"2020.10.02\",\n                    \"기업명\": \"지구행성0-1\",\n                    \"이름\": \"손오공\",\n                    \"지급일\": \"2020.11.02\",\n                    \"업무종료일\": \"2021.11.02\",\n                    \"주민등록번호\": \"820326-2715702\",\n                    \"소득구분\": \"근로소득(연간)\",\n                    \"사업자등록번호\": \"012-23-12345\"\n                }\n            ],\n            \"산출세액\": \"3,000,000\",\n            \"소득공제\": [\n                {\n                    \"금액\": \"160,000\",\n                    \"소득구분\": \"보험료\"\n                },\n                {\n                    \"금액\": \"300,000\",\n                    \"소득구분\": \"교육비\"\n                },\n                {\n                    \"금액\": \"200,000\",\n                    \"소득구분\": \"기부금\"\n                },\n                {\n                    \"금액\": \"500,000\",\n                    \"소득구분\": \"의료비\"\n                },\n                {\n                    \"총납임금액\": \"3,000,000\",\n                    \"소득구분\": \"퇴직연금\"\n                }\n            ]\n        },\n        \"appVer\": \"2021112501\",\n        \"errMsg\": \"\",\n        \"company\": \"삼쩜삼\",\n        \"svcCd\": \"test01\",\n        \"hostNm\": \"jobis-codetest\",\n        \"workerResDt\": \"2022-08-16T06:27:35.160789\",\n        \"workerReqDt\": \"2022-08-16T06:27:35.160851\"\n    },\n    \"errors\": {}\n}"
+				},
+				{
+					"name": "소득정보 조회 실패(잘못된 주민등록번호)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"손오공\",\n    \"regNo\" : \"820326-2715\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://codetest.3o3.co.kr/v2/scrap",
+							"protocol": "https",
+							"host": [
+								"codetest",
+								"3o3",
+								"co",
+								"kr"
+							],
+							"path": [
+								"v2",
+								"scrap"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 03 Feb 2024 14:44:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "3f9b7ad6-4960-43c7-8806-2278abd1f4df"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "SkGeKHuPoE0FQpg="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-65be5127-1b80bb587675c05f6f48ff38;Sampled=0;lineage=3130ed16:0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"fail\",\n    \"errors\": {\n        \"code\": \"-1\",\n        \"message\": \"요청하신 값은 스크랩 가능유저가 아닙니다.\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
